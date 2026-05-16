@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Halala.Studio - Premium Web Development Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .glass {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a0033 50%, #0a0a2e 100%);
+        }
+        
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(147, 51, 234, 0.3);
+        }
+        
+        .neon-blue {
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
+        }
+        
+        .neon-purple {
+            background: linear-gradient(45deg, #9333ea, #7c3aed);
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+        
+        .btn-glow {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-glow:hover::before {
+            left: 100%;
+        }
+        
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a0033 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .payment-demo {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .payment-demo:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-text {
+                font-size: 2.5rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="gradient-bg text-white overflow-x-hidden">
+    
+    <!-- Loading Screen -->
+    <div id="loading" class="loading">
+        <div class="text-center">
+            <div class="w-24 h-24 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4 neon-glow"></div>
+            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">HalalaWeb Studio</h1>
+            <p class="text-gray-400 mt-2">Loading Premium Experience...</p>
+        </div>
+    </div>
+
+    <!-- Floating Particles Background -->
+    <div id="particles-js" class="absolute inset-0 z-0"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 glass py-4 px-6 md:px-12 transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Halala Web
+            </div>
+            <ul class="hidden md:flex space-x-8 items-center">
+                <li><a href="#home" class="hover:text-blue-400 transition-colors font-medium">Home</a></li>
+                <li><a href="#services" class="hover:text-purple-400 transition-colors font-medium">Services</a></li>
+                <li><a href="#pricing" class="hover:text-blue-400 transition-colors font-medium">Pricing</a></li>
+                <li><a href="#contact" class="hover:text-purple-400 transition-colors font-medium">Contact</a></li>
+            </ul>
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden glass mt-4 p-4 rounded-xl backdrop-blur-xl">
+            <ul class="space-y-4">
+                <li><a href="#home" class="block py-2 hover:text-blue-400">Home</a></li>
+                <li><a href="#services" class="block py-2 hover:text-purple-400">Services</a></li>
+                <li><a href="#pricing" class="block py-2 hover:text-blue-400">Pricing</a></li>
+                <li><a href="#contact" class="block py-2 hover:text-purple-400">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6 md:px-12 relative overflow-hidden">
+        <div class="container mx-auto text-center scroll-reveal">
+            <h1 class="hero-text text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+                <span class="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Premium Websites
+                </span>
+                <br>
+                <span class="text-white">Built For Your</span>
+                <br>
+                <span class="neon-glow text-6xl md:text-8xl lg:text-9xl">Business</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                We create modern, fast, responsive and high-converting websites for businesses, creators and startups.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="#contact" class="btn-glow glass px-12 py-6 rounded-full text-lg font-semibold neon-blue text-white hover:scale-105 transition-all duration-300">
+                    Get Started
+                </a>
+                <a href="#pricing" class="btn-glow glass px-12 py-6 rounded-full text-lg font-semibold border border-white/30 hover:bg-white/10 transition-all duration-300">
+                    View Pricing
+                </a>
+            </div>
+            <div class="mt-16 text-center">
+                <p class="text-lg text-gray-400 mb-4">💳 You can pay with:</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="px-4 py-2 glass rounded-full text-sm font-medium">PayPay</div>
+                    <div class="px-4 py-2 glass rounded-full text-sm font-medium">Visa</div>
+                    <div class="px-4 py-2 glass rounded-full text-sm font-medium">JP Bank</div>
+                    <div class="px-4 py-2 glass rounded-full text-sm font-medium">eSewa</div>
+                    <div class="px-4 py-2 glass rounded-full text-sm font-medium">Fonepay</div>
+                </div>
+                <p class="text-sm text-gray-500 mt-2">Contact us → We tell you how to pay → Start your project!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Section -->
+    <section class="py-24 px-6 md:px-12 scroll-reveal">
+        <div class="container mx-auto text-center">
+            <div class="glass inline-flex px-8 py-4 rounded-full neon-glow">
+                <i class="fas fa-globe text-2xl mr-4 text-blue-400"></i>
+                <span class="text-xl font-semibold">Trusted by clients worldwide</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 px-6 md:px-12">
+        <div class="container mx-auto">
+            <div class="text-center mb-24 scroll-reveal">
+                <h2 class="text-5xl md:text-6xl font-black mb-6">
+                    <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                        Our Services
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">We create any type of website with premium design and cutting-edge technology</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass p-10 rounded-3xl card-hover group">
+                    <div class="w-20 h-20 neon-blue rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-building text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Business Websites</h3>
+                    <p class="text-gray-300 group-hover:text-white transition-colors">Professional websites that drive results for your business</p>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover group">
+                    <div class="w-20 h-20 neon-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-utensils text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Restaurant Websites</h3>
+                    <p class="text-gray-300 group-hover:text-white transition-colors">Delicious designs for your culinary business</p>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover group">
+                    <div class="w-20 h-20 neon-blue rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-shopping-cart text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">E-commerce Websites</h3>
+                    <p class="text-gray-300 group-hover:text-white transition-colors">High-converting online stores</p>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover group">
+                    <div class="w-20 h-20 neon-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-images text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Portfolio Websites</h3>
+                    <p class="text-gray-300 group-hover:text-white transition-colors">Showcase your creative work beautifully</p>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover group">
+                    <div class="w-20 h-20 neon-blue rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-robot text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AI Tool Websites</h3>
+                    <p class="text-gray-300 group-hover:text-white transition-colors">Futuristic websites for AI products</p>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover group">
+                    <div class="w-20 h-20 neon-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-paint-brush text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Custom UI/UX Design</h3>
+                    <p class="text-gray-300 group-hover:text-white transition-colors">Bespoke design experiences</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-32 px-6 md:px-12">
+        <div class="container mx-auto">
+            <div class="text-center mb-24 scroll-reveal">
+                <h2 class="text-5xl md:text-6xl font-black mb-6">
+                    <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                        Pricing Plans
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Choose your plan → Message us → We tell you payment details</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <div class="glass p-10 rounded-3xl card-hover text-center relative">
+                    <h3 class="text-3xl font-bold mb-6">Starter</h3>
+                    <div class="text-4xl font-black mb-2">¥5,000 - ¥10,000</div>
+                    <ul class="space-y-3 mb-8 text-gray-300">
+                        <li>1 Simple Website</li>
+                        <li>Responsive Design</li>
+                        <li>Fast Delivery</li>
+                    </ul>
+                    <a href="#contact" class="btn-glow block w-full py-4 rounded-2xl neon-blue text-white font-semibold">Contact to Buy</a>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover text-center relative border-2 border-blue-500/50 neon-glow">
+                    <h3 class="text-3xl font-bold mb-6">Professional</h3>
+                    <div class="text-4xl font-black mb-2 text-blue-400">¥30,000</div>
+                    <ul class="space-y-3 mb-8 text-gray-300">
+                        <li>Modern Website Design</li>
+                        <li>Premium UI/UX</li>
+                        <li>Full Customization</li>
+                        <li>Mobile Responsive</li>
+                    </ul>
+                    <a href="#contact" class="btn-glow block w-full py-4 rounded-2xl neon-blue text-white font-semibold">Contact to Buy</a>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover text-center relative">
+                    <h3 class="text-3xl font-bold mb-6">Premium Business</h3>
+                    <div class="text-4xl font-black mb-2">¥100,000 - ¥150,000</div>
+                    <ul class="space-y-3 mb-8 text-gray-300">
+                        <li>1 Premium Website</li>
+                        <li>Advanced Features</li>
+                        <li>SEO Optimization</li>
+                        <li>High Performance</li>
+                    </ul>
+                    <a href="#contact" class="btn-glow block w-full py-4 rounded-2xl neon-purple text-white font-semibold">Contact to Buy</a>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover text-center relative">
+                    <h3 class="text-3xl font-bold mb-6">Enterprise</h3>
+                    <div class="text-4xl font-black mb-2">¥400,000</div>
+                    <ul class="space-y-3 mb-8 text-gray-300">
+                        <li>3 Premium Websites</li>
+                        <li>Full Custom Solutions</li>
+                        <li>Advanced Features</li>
+                        <li>Long-term Support</li>
+                    </ul>
+                    <a href="#contact" class="btn-glow block w-full py-4 rounded-2xl neon-blue text-white font-semibold">Contact to Buy</a>
+                </div>
+            </div>
+            
+            <!-- Payment Methods Demo -->
+            <div class="mt-24 text-center scroll-reveal">
+                <h3 class="text-3xl font-bold mb-8">💳 Payment Methods Available</h3>
+                <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">Contact us first → Choose your plan → We send you payment details</p>
+                <div class="grid md:grid-cols-5 gap-6 max-w-4xl mx-auto">
+                    <div class="payment-demo glass p-8 rounded-2xl text-center group">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fab fa-paypal text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">PayPay</h4>
+                        <p class="text-sm text-gray-400">QR Payment</p>
+                    </div>
+                    
+                    <div class="payment-demo glass p-8 rounded-2xl text-center group">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fab fa-cc-visa text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Visa</h4>
+                        <p class="text-sm text-gray-400">Card Payment</p>
+                    </div>
+                    
+                    <div class="payment-demo glass p-8 rounded-2xl text-center group">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fas fa-university text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">JP Bank</h4>
+                        <p class="text-sm text-gray-400">Bank Transfer</p>
+                    </div>
+                    
+                    <div class="payment-demo glass p-8 rounded-2xl text-center group">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fas fa-mobile-alt text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">eSewa</h4>
+                        <p class="text-sm text-gray-400">Digital Wallet</p>
+                    </div>
+                    
+                    <div class="payment-demo glass p-8 rounded-2xl text-center group">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fas fa-credit-card text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Fonepay</h4>
+                        <p class="text-sm text-gray-400">Payment Gateway</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-32 px-6 md:px-12 gradient-bg">
+        <div class="container mx-auto">
+            <div class="text-center mb-24 scroll-reveal">
+                <h2 class="text-5xl md:text-6xl font-black mb-6">
+                    <span class="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
+                        What Clients Say
+                    </span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass p-10 rounded-3xl card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-2xl font-bold mr-4">JD</div>
+                        <div>
+                            <h4 class="font-bold">Bhandari madi</h4>
+                            <p class="text-gray-400">CEO, TechCorp</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"NovaWeb transformed our online presence. Super easy payment process!"</p>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-2xl font-bold mr-4">SM</div>
+                        <div>
+                            <h4 class="font-bold">Shrestha saurav </h4>
+                            <p class="text-gray-400">Founder, GourmetHub</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"Payment was smooth via PayPay. Website launched in 2 weeks!"</p>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center text-2xl font-bold mr-4">AM</div>
+                        <div>
+                            <h4 class="font-bold">shrestha saurav </h4>
+                            <p class="text-gray-400">E-commerce Owner</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"Used eSewa payment. Excellent service and results!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-32 px-6 md:px-12">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-24 scroll-reveal">
+                <h2 class="text-5xl md:text-6xl font-black mb-6">
+                    <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                        Frequently Asked
+                    </span>
+                    <br>
+                    <span class="text-4xl">Questions</span>
+                </h2>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="glass rounded-2xl overflow-hidden">
+                    <button class="w-full p-8 text-left font-semibold hover:bg-white/5 transition-all group">
+                        <span>How do I buy a website?</span>
+                        <i class="fas fa-chevron-down float-right group-hover:rotate-180 transition-transform"></i>
+                    </button>
+                    <div class="glass p-8 border-t border-white/20 max-h-0 overflow-hidden transition-all">
+                        <p class="text-gray-300"><strong>Simple 3 steps:</strong></p>
+                        <ol class="list-decimal list-inside mt-2 space-y-1 text-sm">
+                            <li>Choose your plan above</li>
+                            <li>Message us on WhatsApp/TikTok</li>
+                            <li>We send you payment details → Pay → Start project!</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="glass rounded-2xl overflow-hidden">
+                    <button class="w-full p-8 text-left font-semibold hover:bg-white/5 transition-all group">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fas fa-chevron-down float-right group-hover:rotate-180 transition-transform"></i>
+                    </button>
+                    <div class="glass p-8 border-t border-white/20 max-h-0 overflow-hidden transition-all">
+                        <p class="text-gray-300">PayPay, Visa/Mastercard, JP Bank transfer, eSewa, Fonepay. <strong>We send exact payment instructions after you contact us.</strong></p>
+                    </div>
+                </div>
+                
+                <div class="glass rounded-2xl overflow-hidden">
+                    <button class="w-full p-8 text-left font-semibold hover:bg-white/5 transition-all group">
+                        <span>When do I pay?</span>
+                        <i class="fas fa-chevron-down float-right group-hover:rotate-180 transition-transform"></i>
+                    </button>
+                    <div class="glass p-8 border-t border-white/20 max-h-0 overflow-hidden transition-all">
+                        <p class="text-gray-300">After you contact us and confirm your plan, we send payment details. Pay → Send receipt → We start immediately!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6 md:px-12 gradient-bg">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-24 scroll-reveal">
+                <h2 class="text-5xl md:text-6xl font-black mb-6">
+                    <span class="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
+                        Ready to Start?
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300 mb-12">Message us → Choose plan → Get payment details → Start your premium website!</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass p-10 rounded-3xl card-hover text-center neon-glow">
+                    <div class="w-20 h-20 neon-blue rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">TikTok</h3>
+                    <a href="https://www.tiktok.com/@madi_1114" target="_blank" class="btn-glow block w-full py-4 rounded-2xl bg-gradient-to-r from-gray-800 to-gray-900 hover:neon-blue transition-all">
+                        Message for Order
+                    </a>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover text-center neon-glow">
+                    <div class="w-20 h-20 neon-purple rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Instagram</h3>
+                    <a href="https://www.instagram.com/mabha_22" target="_blank" class="btn-glow block w-full py-4 rounded-2xl bg-gradient-to-r from-gray-800 to-gray-900 hover:neon-purple transition-all">
+                        Message for Order
+                    </a>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover text-center neon-glow">
+                    <div class="w-20 h-20 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">WhatsApp</h3>
+                    <a href="https://wa.me/+8108039845477?text=Hi%20NovaWeb!%20I%20want%20to%20buy%20a%20website.%20Please%20send%20me%20payment%20details." target="_blank" class="btn-glow block w-full py-4 rounded-2xl bg-green-500 hover:bg-green-600 text-white font-semibold transition-all">
+                        Order Now (Fastest)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass py-12 px-6 md:px-12 mt-24">
+        <div class="container mx-auto text-center">
+            <div class="flex justify-center space-x-8 mb-8">
+                <a href="https://www.tiktok.com/@madi_1114" target="_blank" class="w-12 h-12 glass rounded-full flex items-center justify-center text-xl hover:neon-blue transition-all">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.instagram.com/mabha_22" target="_blank" class="w-12 h-12 glass rounded-full flex items-center justify-center text-xl hover:neon-purple transition-all">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/+8108039845477" target="_blank" class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-xl hover:bg-green-600 transition-all">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <div class="glass inline-flex px-8 py-3 rounded-full mb-8">
+                <span class="text-gray-400">© 2024 HalalaWeb Studio. All rights reserved.</span>
+            </div>
+            <p class="text-gray-500 mb-4">Message us first → We send payment details → Multiple payment options available</p>
+            <p class="text-sm text-gray-400">PayPay • Visa • JP Bank • eSewa • Fonepay</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/818039845477" target="_blank" class="whatsapp-float glass p-4 rounded-full text-2xl shadow-2xl neon-glow">
+        <i class="fab fa-whatsapp text-green-500"></i>
+        <span class="ml-2 text-sm font-medium hidden md:inline">Order Website</span>
+    </a>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            const loading = document.getElementById('loading');
+            loading.style.opacity = '0';
+            setTimeout(() => {
+                loading.style.display = 'none';
+            }, 500);
+        });
+
+        // Particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: ['#3b82f6', '#9333ea', '#ec4899'] },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#3b82f6', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', random: false }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+                modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar Mobile Menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.glass > button').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+                
+                // Close all others
+                document.querySelectorAll('.glass > div').forEach(div => {
+                    div.style.maxHeight = '0px';
+                });
+                
+                // Toggle current
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(12, 12, 12, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.1)';
+            }
+        });
+
+        // Payment demo cards click effect (WhatsApp)
+        document.querySelectorAll('.payment-demo').forEach(card => {
+            card.addEventListener('click', () => {
+                const method = card.querySelector('h4').textContent;
+                window.open(`https://wa.me/2348039845477?text=Hi%20NovaWeb!%20I%20want%20to%20pay%20with%20${method}.%20Please%20send%20details!`, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
