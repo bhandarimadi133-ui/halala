@@ -47,6 +47,10 @@
             background: linear-gradient(45deg, #9333ea, #7c3aed);
         }
         
+        .neon-green {
+            background: linear-gradient(45deg, #10b981, #059669);
+        }
+        
         .floating {
             animation: float 6s ease-in-out infinite;
         }
@@ -125,12 +129,12 @@
             100% { transform: scale(1); }
         }
         
-        .payment-demo {
+        .payment-demo, .bug-demo {
             transition: all 0.3s ease;
             cursor: pointer;
         }
         
-        .payment-demo:hover {
+        .payment-demo:hover, .bug-demo:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
@@ -140,6 +144,10 @@
                 font-size: 2.5rem !important;
             }
         }
+      button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
     </style>
 </head>
 <body class="gradient-bg text-white overflow-x-hidden">
@@ -166,6 +174,7 @@
                 <li><a href="#home" class="hover:text-blue-400 transition-colors font-medium">Home</a></li>
                 <li><a href="#services" class="hover:text-purple-400 transition-colors font-medium">Services</a></li>
                 <li><a href="#pricing" class="hover:text-blue-400 transition-colors font-medium">Pricing</a></li>
+                <li><a href="#bugs" class="hover:text-green-400 transition-colors font-medium">Bug Fix</a></li>
                 <li><a href="#contact" class="hover:text-purple-400 transition-colors font-medium">Contact</a></li>
             </ul>
             <div class="md:hidden">
@@ -180,6 +189,7 @@
                 <li><a href="#home" class="block py-2 hover:text-blue-400">Home</a></li>
                 <li><a href="#services" class="block py-2 hover:text-purple-400">Services</a></li>
                 <li><a href="#pricing" class="block py-2 hover:text-blue-400">Pricing</a></li>
+                <li><a href="#bugs" class="block py-2 hover:text-green-400">Bug Fix</a></li>
                 <li><a href="#contact" class="block py-2 hover:text-purple-400">Contact</a></li>
             </ul>
         </div>
@@ -198,7 +208,7 @@
                 <span class="neon-glow text-6xl md:text-8xl lg:text-9xl">Business</span>
             </h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                We create modern, fast, responsive and high-converting websites for businesses, creators and startups.
+                We create modern, fast, responsive websites + expert bug fixing for businesses, creators and startups.
             </p>
             <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <a href="#contact" class="btn-glow glass px-12 py-6 rounded-full text-lg font-semibold neon-blue text-white hover:scale-105 transition-all duration-300">
@@ -241,7 +251,7 @@
                         Our Services
                     </span>
                 </h2>
-                <p class="text-xl text-gray-300 max-w-2xl mx-auto">We create any type of website with premium design and cutting-edge technology</p>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">We create any type of website with premium design + expert bug fixing</p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -250,7 +260,7 @@
                         <i class="fas fa-building text-2xl text-white"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Business Websites</h3>
-                    <p class="text-gray-300 group-hover:text-white transition-colors">Professional websites that drive results for your business</p>
+                    <p class="text-gray-300 group-hover:text-white transition-colors">Professional websites that drive results</p>
                 </div>
                 
                 <div class="glass p-10 rounded-3xl card-hover group">
@@ -258,7 +268,7 @@
                         <i class="fas fa-utensils text-2xl text-white"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Restaurant Websites</h3>
-                    <p class="text-gray-300 group-hover:text-white transition-colors">Delicious designs for your culinary business</p>
+                    <p class="text-gray-300 group-hover:text-white transition-colors">Delicious designs for culinary business</p>
                 </div>
                 
                 <div class="glass p-10 rounded-3xl card-hover group">
@@ -274,7 +284,7 @@
                         <i class="fas fa-images text-2xl text-white"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Portfolio Websites</h3>
-                    <p class="text-gray-300 group-hover:text-white transition-colors">Showcase your creative work beautifully</p>
+                    <p class="text-gray-300 group-hover:text-white transition-colors">Showcase your creative work</p>
                 </div>
                 
                 <div class="glass p-10 rounded-3xl card-hover group">
@@ -286,11 +296,77 @@
                 </div>
                 
                 <div class="glass p-10 rounded-3xl card-hover group">
-                    <div class="w-20 h-20 neon-purple rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-paint-brush text-2xl text-white"></i>
+                    <div class="w-20 h-20 neon-green rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-bug text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Custom UI/UX Design</h3>
-                    <p class="text-gray-300 group-hover:text-white transition-colors">Bespoke design experiences</p>
+                    <h3 class="text-2xl font-bold mb-4">Website Bug Fixing</h3>
+                    <p class="text-gray-300 group-hover:text-white transition-colors">Fast & expert debugging service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bug Fixing Section (NEW) -->
+    <section id="bugs" class="py-32 px-6 md:px-12 gradient-bg">
+        <div class="container mx-auto">
+            <div class="text-center mb-24 scroll-reveal">
+                <h2 class="text-5xl md:text-6xl font-black mb-6">
+                    <span class="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
+                        Bug Fixing Service
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Fast professional debugging for your website problems</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="glass p-10 rounded-3xl card-hover text-center bug-demo neon-glow">
+                    <div class="w-20 h-20 neon-green rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">
+                        <i class="fas fa-font text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Text/Color/Button Fix</h3>
+                    <div class="text-3xl font-black mb-6">¥1,000–¥5,000</div>
+                    <p class="text-gray-300 mb-6">Simple CSS fixes & styling issues</p>
+                    <a href="#contact" class="btn-glow block w-full py-4 rounded-2xl neon-green text-white font-semibold">Fix Now</a>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover text-center bug-demo">
+                    <div class="w-20 h-20 neon-blue rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">
+                        <i class="fas fa-mobile-alt text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Responsive/Mobile Fix</h3>
+                    <div class="text-3xl font-black mb-6">¥3,000–¥15,000</div>
+                    <p class="text-gray-300 mb-6">Mobile layout & responsive issues</p>
+                    <a href="#contact" class="btn-glow block w-full py-4 rounded-2xl neon-blue text-white font-semibold">Fix Now</a>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover text-center bug-demo">
+                    <div class="w-20 h-20 neon-purple rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">
+                        <i class="fas fa-code text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Form/Login/API Bug</h3>
+                    <div class="text-3xl font-black mb-6">¥5,000–¥30,000</div>
+                    <p class="text-gray-300 mb-6">Complex functionality debugging</p>
+                    <a href="#contact" class="btn-glow block w-full py-4 rounded-2xl neon-purple text-white font-semibold">Fix Now</a>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover text-center bug-demo border-2 border-green-500/50">
+                    <div class="w-20 h-20 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">
+                        <i class="fas fa-bug-slash text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Full Website Debug</h3>
+                    <div class="text-3xl font-black mb-6 text-green-400">¥20,000+</div>
+                    <p class="text-gray-300 mb-6">Complete website optimization</p>
+                    <a href="#contact" class="btn-glow block w-full py-4 rounded-2xl neon-green text-white font-semibold">Fix Now</a>
+                </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover text-center bug-demo md:col-span-2 lg:col-span-1">
+                    <div class="w-20 h-20 neon-blue rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">
+                        <i class="fas fa-clock text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Hourly Basis</h3>
+                    <div class="text-3xl font-black mb-6">¥1,500–¥5,000/hr</div>
+                    <p class="text-gray-300 mb-6">Beginner to intermediate freelance rates</p>
+                    <a href="#contact" class="btn-glow block w-full py-4 rounded-2xl neon-blue text-white font-semibold">Fix Now</a>
                 </div>
             </div>
         </div>
@@ -302,7 +378,7 @@
             <div class="text-center mb-24 scroll-reveal">
                 <h2 class="text-5xl md:text-6xl font-black mb-6">
                     <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                        Pricing Plans
+                        Website Pricing Plans
                     </span>
                 </h2>
                 <p class="text-xl text-gray-300 max-w-2xl mx-auto">Choose your plan → Message us → We tell you payment details</p>
@@ -356,12 +432,17 @@
                     <a href="#contact" class="btn-glow block w-full py-4 rounded-2xl neon-blue text-white font-semibold">Contact to Buy</a>
                 </div>
             </div>
-            
-            <!-- Payment Methods Demo -->
-            <div class="mt-24 text-center scroll-reveal">
+        </div>
+    </section>
+
+    <!-- Payment Methods Demo -->
+    <section class="py-24 px-6 md:px-12">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-24 scroll-reveal">
                 <h3 class="text-3xl font-bold mb-8">💳 Payment Methods Available</h3>
-                <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">Contact us first → Choose your plan → We send you payment details</p>
-                <div class="grid md:grid-cols-5 gap-6 max-w-4xl mx-auto">
+                <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">Contact us first → Choose your service → We send you payment details</p>
+                
+                <div class="grid lg:grid-cols-6 gap-6">
                     <div class="payment-demo glass p-8 rounded-2xl text-center group">
                         <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                             <i class="fab fa-paypal text-white text-xl"></i>
@@ -426,29 +507,29 @@
                             <p class="text-gray-400">CEO, TechCorp</p>
                         </div>
                     </div>
-                    <p class="text-gray-300 italic">"NovaWeb transformed our online presence. Super easy payment process!"</p>
+                    <p class="text-gray-300 italic">"Website + bug fixes were perfect! Super smooth payment."</p>
                 </div>
                 
                 <div class="glass p-10 rounded-3xl card-hover">
                     <div class="flex items-center mb-6">
                         <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-2xl font-bold mr-4">SM</div>
                         <div>
-                            <h4 class="font-bold">Shrestha saurav </h4>
+                            <h4 class="font-bold">Shrestha saurav</h4>
                             <p class="text-gray-400">Founder, GourmetHub</p>
                         </div>
                     </div>
-                    <p class="text-gray-300 italic">"Payment was smooth via PayPay. Website launched in 2 weeks!"</p>
+                    <p class="text-gray-300 italic">"PayPay payment was instant. Mobile bugs fixed in 1 day!"</p>
                 </div>
                 
                 <div class="glass p-10 rounded-3xl card-hover">
                     <div class="flex items-center mb-6">
                         <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center text-2xl font-bold mr-4">AM</div>
                         <div>
-                            <h4 class="font-bold">shrestha saurav </h4>
+                            <h4 class="font-bold">shrestha saurav</h4>
                             <p class="text-gray-400">E-commerce Owner</p>
                         </div>
                     </div>
-                    <p class="text-gray-300 italic">"Used eSewa payment. Excellent service and results!"</p>
+                    <p class="text-gray-300 italic">"Complex form bugs fixed via eSewa. Excellent service!"</p>
                 </div>
             </div>
         </div>
@@ -470,15 +551,15 @@
             <div class="space-y-4">
                 <div class="glass rounded-2xl overflow-hidden">
                     <button class="w-full p-8 text-left font-semibold hover:bg-white/5 transition-all group">
-                        <span>How do I buy a website?</span>
+                        <span>How do I buy a website or bug fix?</span>
                         <i class="fas fa-chevron-down float-right group-hover:rotate-180 transition-transform"></i>
                     </button>
                     <div class="glass p-8 border-t border-white/20 max-h-0 overflow-hidden transition-all">
                         <p class="text-gray-300"><strong>Simple 3 steps:</strong></p>
                         <ol class="list-decimal list-inside mt-2 space-y-1 text-sm">
-                            <li>Choose your plan above</li>
-                            <li>Message us on WhatsApp/TikTok</li>
-                            <li>We send you payment details → Pay → Start project!</li>
+                            <li>Choose your plan/service above</li>
+                            <li>Message us on WhatsApp/Email/TikTok</li>
+                            <li>We send payment details → Pay → Start immediately!</li>
                         </ol>
                     </div>
                 </div>
@@ -495,11 +576,11 @@
                 
                 <div class="glass rounded-2xl overflow-hidden">
                     <button class="w-full p-8 text-left font-semibold hover:bg-white/5 transition-all group">
-                        <span>When do I pay?</span>
+                        <span>Can you fix my existing website bugs?</span>
                         <i class="fas fa-chevron-down float-right group-hover:rotate-180 transition-transform"></i>
                     </button>
                     <div class="glass p-8 border-t border-white/20 max-h-0 overflow-hidden transition-all">
-                        <p class="text-gray-300">After you contact us and confirm your plan, we send payment details. Pay → Send receipt → We start immediately!</p>
+                        <p class="text-gray-300"><strong>Yes!</strong> We fix text/color issues (¥1k-5k), mobile problems (¥3k-15k), forms/API bugs (¥5k-30k), or full debugging (¥20k+). <strong>Send us your website link!</strong></p>
                     </div>
                 </div>
             </div>
@@ -515,10 +596,10 @@
                         Ready to Start?
                     </span>
                 </h2>
-                <p class="text-xl text-gray-300 mb-12">Message us → Choose plan → Get payment details → Start your premium website!</p>
+                <p class="text-xl text-gray-300 mb-12">Message us → Choose plan/service → Get payment details → Start immediately!</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="glass p-10 rounded-3xl card-hover text-center neon-glow">
                     <div class="w-20 h-20 neon-blue rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
                         <i class="fab fa-tiktok"></i>
@@ -544,12 +625,59 @@
                         <i class="fab fa-whatsapp"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">WhatsApp</h3>
-                    <a href="https://wa.me/+8108039845477?text=Hi%20NovaWeb!%20I%20want%20to%20buy%20a%20website.%20Please%20send%20me%20payment%20details." target="_blank" class="btn-glow block w-full py-4 rounded-2xl bg-green-500 hover:bg-green-600 text-white font-semibold transition-all">
+                    <a href="https://wa.me/+8108039845477?text=Hi%20HalalaWeb!%20I%20want%20to%20buy%20a%20website%20or%20bug%20fix.%20Please%20send%20payment%20details." target="_blank" class="btn-glow block w-full py-4 rounded-2xl bg-green-500 hover:bg-green-600 text-white font-semibold transition-all">
                         Order Now (Fastest)
                     </a>
                 </div>
+                
+                <div class="glass p-10 rounded-3xl card-hover text-center neon-glow">
+                    <div class="w-20 h-20 neon-blue rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Email</h3>
+                    <a href="mailto:halalawork15@gmail.com?subject=Website%20Order"
+
+</a>
+
+                    </a>
+                    <p class="text-xs text-gray-400 mt-2 font-mono">halalawork15@gmail.com</p>
+                </div>
             </div>
-        </div>
+        </div> 
+      <form onsubmit="sendMail(event)" class="glass p-8 rounded-3xl mt-10 space-y-6">
+    
+    <input 
+        type="text" 
+        id="name" 
+        placeholder="Your Name"
+        class="w-full p-4 rounded-xl bg-black/30 border border-white/20 text-white outline-none"
+        required
+    >
+
+    <input 
+        type="email" 
+        id="email" 
+        placeholder="Your Email"
+        class="w-full p-4 rounded-xl bg-black/30 border border-white/20 text-white outline-none"
+        required
+    >
+
+    <textarea 
+        id="message" 
+        placeholder="Your Message"
+        rows="5"
+        class="w-full p-4 rounded-xl bg-black/30 border border-white/20 text-white outline-none"
+        required
+    ></textarea>
+
+    <button 
+        type="submit"
+        class="w-full py-4 rounded-2xl neon-blue text-white font-bold"
+    >
+        Send Message
+    </button>
+
+</form>
     </section>
 
     <!-- Footer -->
@@ -565,19 +693,22 @@
                 <a href="https://wa.me/+8108039845477" target="_blank" class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-xl hover:bg-green-600 transition-all">
                     <i class="fab fa-whatsapp"></i>
                 </a>
+                <a href="mailto:halalawork15@gmail.com" class="w-12 h-12 glass rounded-full flex items-center justify-center text-xl hover:bg-blue-500 transition-all">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
             <div class="glass inline-flex px-8 py-3 rounded-full mb-8">
                 <span class="text-gray-400">© 2024 HalalaWeb Studio. All rights reserved.</span>
             </div>
-            <p class="text-gray-500 mb-4">Message us first → We send payment details → Multiple payment options available</p>
-            <p class="text-sm text-gray-400">PayPay • Visa • JP Bank • eSewa • Fonepay</p>
+            <p class="text-gray-500 mb-4">Message us first → We send payment details → Websites + Bug Fixes</p>
+            <p class="text-sm text-gray-400">PayPay • Visa • JP Bank • eSewa • Fonepay • halalawork15@gmail.com</p>
         </div>
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/818039845477" target="_blank" class="whatsapp-float glass p-4 rounded-full text-2xl shadow-2xl neon-glow">
+    <a href="https://wa.me/+8108039845477" target="_blank" class="whatsapp-float glass p-4 rounded-full text-2xl shadow-2xl neon-glow">
         <i class="fab fa-whatsapp text-green-500"></i>
-        <span class="ml-2 text-sm font-medium hidden md:inline">Order Website</span>
+        <span class="ml-2 text-sm font-medium hidden md:inline">Order Website/Fix</span>
     </a>
 
     <script>
@@ -594,7 +725,7 @@
         particlesJS('particles-js', {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: ['#3b82f6', '#9333ea', '#ec4899'] },
+                color: { value: ['#3b82f6', '#9333ea', '#10b981', '#ec4899'] },
                 shape: { type: 'circle' },
                 opacity: { value: 0.5, random: true },
                 size: { value: 3, random: true },
@@ -670,16 +801,52 @@
             }
         });
 
-        // Payment demo cards click effect (WhatsApp)
-        document.querySelectorAll('.payment-demo').forEach(card => {
+        // Payment & Bug demo cards click effect (WhatsApp)
+        document.querySelectorAll('.payment-demo, .bug-demo').forEach(card => {
             card.addEventListener('click', () => {
                 const method = card.querySelector('h4').textContent;
-                window.open(`https://wa.me/2348039845477?text=Hi%20NovaWeb!%20I%20want%20to%20pay%20with%20${method}.%20Please%20send%20details!`, '_blank');
+                window.open(`https://wa.me/+8108039845477?text=Hi%20HalalaWeb!%20I%20want%20to%20use%20${method}.%20Please%20send%20details!`, '_blank');
             });
         });
     </script>
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+(function () {
+    emailjs.init("0fye_EQ-LlERei9UN");
+})();
+
+function sendMail(e) {
+    e.preventDefault();
+
+    const btn = document.querySelector("button[type='submit']");
+    btn.innerHTML = "Sending...";
+    btn.disabled = true;
+
+    emailjs.send("service_k3rsfj8", "madi202510", {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+    })
+    .then(() => {
+        alert("Message Sent Successfully!");
+
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+    })
+    .catch((error) => {
+        console.error(error);
+        alert("Failed to send message");
+    })
+    .finally(() => {
+        btn.innerHTML = "Send Message";
+        btn.disabled = false;
+    });
+}
+</script>
 </body>
-</html>
+</html>s
     
   </body>
   
